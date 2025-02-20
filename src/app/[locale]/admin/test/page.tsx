@@ -1,63 +1,144 @@
 'use client';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
-export default function AddDynamicInputFields() {
-  const [inputs, setInputs] = useState([{ firstName: '', lastName: '' }]);
+// type Field = {
+//   fieldName: string;
+//   jsonKey: string;
+//   children?: Field[]; // 🆕 Added nested children support
+// };
+type Field = {
+  fieldName: string;
+  jsonKey: string;
+  children?: Field[];
+} & { [key: string]: string | Field[] | undefined };
 
+export default function AddDynamicInputFields() {
+  const [parents, setParents] = useState<Field[]>([
+    { fieldName: '', jsonKey: '', children: [] },
+  ]);
+
+  // Add new MAIN child
   const handleAddInput = () => {
-    setInputs([...inputs, { firstName: '', lastName: '' }]);
+    setParents([...parents, { fieldName: '', jsonKey: '', children: [] }]);
   };
 
+  // Add INNER child to a specific main child
+  const handleAddInnerChild = (parentIndex: number) => {
+    let updatedChilds = [...parents];
+    updatedChilds[parentIndex].children?.push({
+      fieldName: '',
+      jsonKey: '',
+    });
+    setParents([...updatedChilds]);
+  };
+
+  // Handle input change (both main & inner child)
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    index: number,
+    parentIndex: number,
+    childIndex?: number,
   ) => {
     let { name, value } = event.target;
-    let onChangeValue = [...inputs];
+    let updatedChilds = [...parents];
 
-    // Ensure TypeScript recognizes 'name' as a valid key
-    if (name in onChangeValue[index]) {
-      (onChangeValue[index] as Record<string, string>)[name] = value;
-      setInputs(onChangeValue);
+    // if (childIndex !== undefined) {
+    //   // Update INNER child
+    //   updatedChilds[parentIndex].children![childIndex][name] = value;
+    // } else {
+    //   // Update MAIN child
+    //   updatedChilds[parentIndex][name] = value;
+    // }
+
+    if (childIndex !== undefined) {
+      // Update INNER child
+      updatedChilds[parentIndex].children![childIndex][name as keyof Field] =
+        value;
+    } else {
+      // Update MAIN child
+      updatedChilds[parentIndex][name as keyof Field] = value;
     }
+
+    setParents(updatedChilds);
   };
 
+  // Delete MAIN child
   const handleDeleteInput = (index: number) => {
-    const newArray = [...inputs];
-    newArray.splice(index, 1);
-    setInputs(newArray);
+    setParents(parents.filter((_, i) => i !== index));
+  };
+
+  // Delete INNER child
+  const handleDeleteInnerChild = (parentIndex: number, childIndex: number) => {
+    let updatedChilds = [...parents];
+    updatedChilds[parentIndex].children = updatedChilds[
+      parentIndex
+    ].children?.filter((_, i) => i !== childIndex);
+    setParents(updatedChilds);
   };
 
   return (
-    <div className="container grid gap-4">
-      {inputs.map((item, index) => (
-        <div className="input_container grid grid-cols-3 gap-4" key={index}>
-          <Input
-            name="firstName"
-            type="text"
-            value={item.firstName}
-            onChange={(event) => handleChange(event, index)}
-          />
-          <Input
-            name="lastName"
-            type="text"
-            value={item.lastName}
-            onChange={(event) => handleChange(event, index)}
-          />
-          <div className="grid grid-cols-2 gap-4">
-            {inputs.length > 1 && (
-              <Button onClick={() => handleDeleteInput(index)}>Delete</Button>
-            )}
-            {index === inputs.length - 1 && (
-              <Button onClick={() => handleAddInput()}>Add</Button>
-            )}
-          </div>
-        </div>
+    <div className="grid gap-4">
+      {parents.map((item, index) => (
+        <Card key={index}>
+          <CardContent className="grid gap-6 p-6">
+            <div className=" grid grid-cols-3 gap-4">
+              <Input
+                name="fieldName"
+                type="text"
+                value={item.fieldName}
+                onChange={(event) => handleChange(event, index)}
+              />
+              <Input
+                name="jsonKey"
+                type="text"
+                value={item.jsonKey}
+                onChange={(event) => handleChange(event, index)}
+              />
+              <div className="grid grid-cols-2 gap-4">
+                {parents.length > 1 && (
+                  <Button onClick={() => handleDeleteInput(index)}>
+                    Delete
+                  </Button>
+                )}
+                <Button onClick={() => handleAddInnerChild(index)}>
+                  + Inner
+                </Button>
+              </div>
+            </div>
+            {item.children?.map((child, childIndex) => (
+              <div key={childIndex} className="ml-6 border-l border-gray-300">
+                <div className="grid grid-cols-3 gap-4">
+                  <Input
+                    name="fieldName"
+                    type="text"
+                    value={child.fieldName}
+                    onChange={(event) => handleChange(event, index, childIndex)}
+                  />
+                  <Input
+                    name="jsonKey"
+                    type="text"
+                    value={child.jsonKey}
+                    onChange={(event) => handleChange(event, index, childIndex)}
+                  />
+                  <Button
+                    onClick={() => handleDeleteInnerChild(index, childIndex)}
+                    className="bg-red-500 text-white"
+                  >
+                    Delete Inner
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
       ))}
 
-      <div className="body"> {JSON.stringify(inputs)} </div>
+      <Button onClick={handleAddInput}>+ Add Main</Button>
+      <div>
+        <pre>{JSON.stringify(parents, null, 2)}</pre>
+      </div>
     </div>
   );
 }
