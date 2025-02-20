@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
 
 // type Field = {
 //   fieldName: string;
@@ -16,6 +17,7 @@ type Field = {
 } & { [key: string]: string | Field[] | undefined };
 
 export default function AddDynamicInputFields() {
+  const [channelName, setChannelName] = useState('');
   const [parents, setParents] = useState<Field[]>([
     { fieldName: '', jsonKey: '', children: [] },
   ]);
@@ -78,8 +80,44 @@ export default function AddDynamicInputFields() {
     setParents(updatedChilds);
   };
 
+  const [convertedJson, setConvertedJson] = useState<object | null>(null);
+
+  const convertToJson = (fields: Field[]): object => {
+    return fields.reduce((acc, item) => {
+      const baseJson = { psp_name: channelName };
+      const fieldData: any = {
+        name: item.jsonKey,
+        type: 'text', // Assuming the type is always "text", you can change this logic if needed
+      };
+
+      if (item.children && item.children.length > 0) {
+        fieldData.subparam = convertToJson(item.children); // Add subparam if there are children
+      }
+
+      acc[item.fieldName] = fieldData;
+
+      return { ...baseJson, ...acc };
+    }, {} as Record<string, any>);
+  };
+
+  const handleConvert = () => {
+    setConvertedJson(convertToJson(parents));
+  };
+  const handleChannelName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChannelName(event.target.value);
+  };
+
   return (
     <div className="grid gap-4">
+      <div className="grid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="email">Payment Channel Name</Label>
+        <Input
+          name="channelName"
+          type="text"
+          value={channelName}
+          onChange={handleChannelName}
+        />
+      </div>
       {parents.map((item, index) => (
         <Card key={index}>
           <CardContent className="grid gap-6 p-6">
@@ -138,6 +176,19 @@ export default function AddDynamicInputFields() {
       <Button onClick={handleAddInput}>+ Add Main</Button>
       <div>
         <pre>{JSON.stringify(parents, null, 2)}</pre>
+      </div>
+      <div className="container grid gap-4 p-4">
+        <Button
+          onClick={handleConvert}
+          className="mt-4 bg-blue-500 text-white p-2 rounded"
+        >
+          Convert
+        </Button>
+        {convertedJson && (
+          <div className="mt-4 p-4 border rounded bg-gray-100">
+            <pre>{JSON.stringify(convertedJson, null, 2)}</pre>
+          </div>
+        )}
       </div>
     </div>
   );
