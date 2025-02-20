@@ -84,10 +84,9 @@ export default function AddDynamicInputFields() {
 
   const convertToJson = (fields: Field[]): object => {
     return fields.reduce((acc, item) => {
-      const baseJson = { psp_name: channelName };
       const fieldData: any = {
         name: item.jsonKey,
-        type: 'text', // Assuming the type is always "text", you can change this logic if needed
+        type: 'text', // Assuming type is always "text", this can be dynamic if needed
       };
 
       if (item.children && item.children.length > 0) {
@@ -96,13 +95,16 @@ export default function AddDynamicInputFields() {
 
       acc[item.fieldName] = fieldData;
 
-      return { ...baseJson, ...acc };
+      return acc;
     }, {} as Record<string, any>);
   };
 
   const handleConvert = () => {
-    setConvertedJson(convertToJson(parents));
+    const baseJson = { psp_name: channelName };
+    const finalJson = { ...baseJson, ...convertToJson(parents) };
+    setConvertedJson(finalJson);
   };
+
   const handleChannelName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChannelName(event.target.value);
   };
@@ -123,16 +125,16 @@ export default function AddDynamicInputFields() {
           <CardContent className="grid gap-6 p-6">
             <div className=" grid grid-cols-3 gap-4">
               <Input
-                name="fieldName"
+                name="jsonKey"
                 type="text"
-                value={item.fieldName}
+                value={item.jsonKey}
                 placeholder="Field name"
                 onChange={(event) => handleChange(event, index)}
               />
               <Input
-                name="jsonKey"
+                name="fieldName"
                 type="text"
-                value={item.jsonKey}
+                value={item.fieldName}
                 placeholder="JSON key"
                 onChange={(event) => handleChange(event, index)}
               />
