@@ -126,12 +126,14 @@ export default function AddDynamicInputFields() {
                 name="fieldName"
                 type="text"
                 value={item.fieldName}
+                placeholder="Field name"
                 onChange={(event) => handleChange(event, index)}
               />
               <Input
                 name="jsonKey"
                 type="text"
                 value={item.jsonKey}
+                placeholder="JSON key"
                 onChange={(event) => handleChange(event, index)}
               />
               <div className="grid grid-cols-2 gap-4">
@@ -152,12 +154,14 @@ export default function AddDynamicInputFields() {
                     name="fieldName"
                     type="text"
                     value={child.fieldName}
+                    placeholder="Field name"
                     onChange={(event) => handleChange(event, index, childIndex)}
                   />
                   <Input
                     name="jsonKey"
                     type="text"
                     value={child.jsonKey}
+                    placeholder="JSON key"
                     onChange={(event) => handleChange(event, index, childIndex)}
                   />
                   <Button
@@ -177,13 +181,8 @@ export default function AddDynamicInputFields() {
       <div>
         <pre>{JSON.stringify(parents, null, 2)}</pre>
       </div>
-      <div className="container grid gap-4 p-4">
-        <Button
-          onClick={handleConvert}
-          className="mt-4 bg-blue-500 text-white p-2 rounded"
-        >
-          Convert
-        </Button>
+      <div className="grid gap-4">
+        <Button onClick={handleConvert}>Convert</Button>
         {convertedJson && (
           <div className="mt-4 p-4 border rounded bg-gray-100">
             <pre>{JSON.stringify(convertedJson, null, 2)}</pre>
