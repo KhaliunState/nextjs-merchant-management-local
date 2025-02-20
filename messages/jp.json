@@ -272,6 +272,7 @@
     "columns": "コラム"
   },
   "Breadcrumb": {
+    "test": "Test",
     "admin": "ホーム",
     "sites": "サイト管理",
     "clients": "加盟店管理",

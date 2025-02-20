@@ -271,6 +271,7 @@
     "columns": "Columns"
   },
   "Breadcrumb": {
+    "test": "Test",
     "admin": "Home",
     "sites": "Site management",
     "clients": "Client management",
