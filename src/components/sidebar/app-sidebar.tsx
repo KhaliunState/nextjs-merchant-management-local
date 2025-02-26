@@ -82,44 +82,6 @@ export function AppSidebar({
         },
       ],
       icon: StoreIcon,
-      items: [
-        {
-          title: 'client_list',
-          url: '/admin/clients',
-          breadcrumb: [
-            {
-              label: 'home',
-              url: '/admin',
-            },
-            {
-              label: 'client_management',
-              url: '/admin/clients',
-            },
-            {
-              label: 'client_list',
-              url: '/admin/clients',
-            },
-          ],
-        },
-        {
-          title: 'create_client',
-          url: '/admin/clients/create',
-          breadcrumb: [
-            {
-              label: 'home',
-              url: '/admin',
-            },
-            {
-              label: 'client_management',
-              url: '/admin/clients',
-            },
-            {
-              label: 'create_client',
-              url: '/admin/clients/create',
-            },
-          ],
-        },
-      ],
     },
 
     {
@@ -136,44 +98,6 @@ export function AppSidebar({
         },
       ],
       icon: EarthIcon,
-      items: [
-        {
-          title: 'site_list',
-          url: '/admin/sites',
-          breadcrumb: [
-            {
-              label: 'home',
-              url: '/admin',
-            },
-            {
-              label: 'site_management',
-              url: '/admin/sites',
-            },
-            {
-              label: 'site_list',
-              url: '/admin/sites',
-            },
-          ],
-        },
-        {
-          title: 'create_site',
-          url: '/admin/sites/create',
-          breadcrumb: [
-            {
-              label: 'home',
-              url: '/admin',
-            },
-            {
-              label: 'site_management',
-              url: '/admin/sites',
-            },
-            {
-              label: 'create_site',
-              url: '/admin/sites/create',
-            },
-          ],
-        },
-      ],
     },
     {
       title: 'service_management',
@@ -189,44 +113,6 @@ export function AppSidebar({
         },
       ],
       icon: SettingsIcon,
-      items: [
-        {
-          title: 'service_list',
-          url: '/admin/services',
-          breadcrumb: [
-            {
-              label: 'home',
-              url: '/admin',
-            },
-            {
-              label: 'service_management',
-              url: '/admin/services',
-            },
-            {
-              label: 'service_list',
-              url: '/admin/services',
-            },
-          ],
-        },
-        {
-          title: 'create_service',
-          url: '/admin/services/create',
-          breadcrumb: [
-            {
-              label: 'home',
-              url: '/admin',
-            },
-            {
-              label: 'service_management',
-              url: '/admin/services',
-            },
-            {
-              label: 'create_service',
-              url: '/admin/services/create',
-            },
-          ],
-        },
-      ],
     },
     {
       title: 'transaction_management',

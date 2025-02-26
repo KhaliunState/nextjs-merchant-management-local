@@ -290,6 +290,7 @@
   "edit_services": "서비스 수정",
   "edit_transactions": "거래 수정",
   "edit_invoices": "청구서 수정",
-  "edit_users": "사용자 수정"
+  "edit_users": "사용자 수정",
+  "create_users": "사용자 생성"
   }
 }

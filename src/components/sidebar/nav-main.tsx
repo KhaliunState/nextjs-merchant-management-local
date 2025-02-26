@@ -42,15 +42,16 @@ export function NavMain({
 }) {
   const t = useTranslations('SideMenu');
 
-  const paths = usePathname();
-
-  const [activeItem, setActiveItem] = useState<string | null>(null);
   // Handle item click to set the active state
   const handleItemClick = (item: MenuItem) => {
-    setActiveItem((prev) => (prev === item.title ? null : item.title));
     setBreadCrumbData(item.breadcrumb);
   };
+  const paths = usePathname();
 
+  const getTemporaryData = () => {
+    const data = sessionStorage.getItem('isNewUser');
+    return data ? JSON.parse(data) : true;
+  };
   return (
     <SidebarGroup>
       <SidebarMenu>
@@ -65,26 +66,6 @@ export function NavMain({
                     <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                   </SidebarMenuButton>
                 </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <SidebarMenuSub>
-                    {item.items?.map((subItem) => (
-                      <SidebarMenuSubItem key={subItem.title}>
-                        <SidebarMenuSubButton
-                          asChild
-                          onClick={() => handleItemClick(subItem)}
-                          className={
-                            paths === subItem.url
-                              ? 'active'
-                              : '' +
-                                'hover:bg-gray-50 active:bg-gray-50 focus:outline-none'
-                          }
-                        >
-                          <Link href={subItem.url}>{t(subItem.title)}</Link>
-                        </SidebarMenuSubButton>
-                      </SidebarMenuSubItem>
-                    ))}
-                  </SidebarMenuSub>
-                </CollapsibleContent>
               </Collapsible>
             </SidebarMenuItem>
           ) : (
@@ -92,12 +73,18 @@ export function NavMain({
               <SidebarMenuButton
                 asChild
                 onClick={() => handleItemClick(item)}
-                isActive={true}
-                className={
-                  paths === item.url
-                    ? 'active'
-                    : '' +
-                      'hover:bg-gray-50 active:bg-gray-50 focus:outline-none'
+                isActive={
+                  item.url == '/admin'
+                    ? paths == item.url
+                      ? true
+                      : false
+                    : paths.includes(item.url)
+                    ? true
+                    : false
+                  // paths == item.url ||
+                  // (paths != item.url && paths.includes(item.url))
+                  //   ? true
+                  //   : false
                 }
               >
                 <Link href={item.url}>

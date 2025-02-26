@@ -293,6 +293,7 @@
     "edit_services": "Edit service",
     "edit_transactions": "Edit transaction",
     "edit_invoices": "Edit invoice",
-    "edit_users": "Edit user"
+    "edit_users": "Edit user",
+    "create_users": "Create user"
   }
 }

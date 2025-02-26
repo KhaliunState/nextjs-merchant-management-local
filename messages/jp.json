@@ -294,6 +294,7 @@
     "edit_services": "サービス編集",
     "edit_transactions": "トランザクション編集",
     "edit_invoices": "明細編集",
-    "edit_users": "ユーザー編集"
+    "edit_users": "ユーザー編集",
+    "create_users": "ユーザー作成"
   }
 }
