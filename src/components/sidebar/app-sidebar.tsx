@@ -13,6 +13,7 @@ import {
   UsersRoundIcon,
   LayoutDashboardIcon,
   type LucideIcon,
+  WalletIcon,
 } from 'lucide-react';
 import { NavUser } from '@/components/sidebar/nav-user';
 import { TeamSwitcher } from '@/components/sidebar/team-switcher';
@@ -113,6 +114,21 @@ export function AppSidebar({
         },
       ],
       icon: SettingsIcon,
+    },
+    {
+      title: 'payment_management',
+      url: '/admin/payments',
+      breadcrumb: [
+        {
+          label: 'home',
+          url: '/admin',
+        },
+        {
+          label: 'payment_management',
+          url: '/admin/payments',
+        },
+      ],
+      icon: WalletIcon,
     },
     {
       title: 'transaction_management',

@@ -52,7 +52,8 @@
     "client_list": "Client list",
     "service_management": "Service management",
     "service_list": "Service list",
-    "create_service": "Create service"
+    "create_service": "Create service",
+    "payment_management": "Payment management"
   },
   "LocaleSwitcher": {
     "en": "English",
@@ -294,6 +295,7 @@
     "edit_transactions": "Edit transaction",
     "edit_invoices": "Edit invoice",
     "edit_users": "Edit user",
-    "create_users": "Create user"
+    "create_users": "Create user",
+    "payments": "Payment management"
   }
 }

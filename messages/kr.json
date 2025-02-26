@@ -51,7 +51,8 @@
     "client_list": "매장 목록",
     "service_management": "서비스 관리",
     "service_list": "서비스 목록",
-    "create_service": "서비스 생성"
+    "create_service": "서비스 생성",
+  "payment_management": "결제 채널 관리"
   },
   "LocaleSwitcher": {
     "en": "English",
@@ -291,6 +292,7 @@
   "edit_transactions": "거래 수정",
   "edit_invoices": "청구서 수정",
   "edit_users": "사용자 수정",
-  "create_users": "사용자 생성"
+  "create_users": "사용자 생성",
+  "payments": "결제 채널 관리"
   }
 }

@@ -52,7 +52,8 @@
     "client_list": "商店列表",
     "service_management": "服务管理",
     "service_list": "服务列表",
-    "create_service": "创建服务"
+    "create_service": "创建服务",
+  "payment_management": "支付渠道管理"
   },
   "LocaleSwitcher": {
     "en": "English",
@@ -294,6 +295,7 @@
   "edit_transactions": "编辑交易",
   "edit_invoices": "编辑发票",
   "edit_users": "编辑用户",
-  "create_users": "创建用户"
+  "create_users": "创建用户",
+  "payments": "支付渠道管理"
   }
 }

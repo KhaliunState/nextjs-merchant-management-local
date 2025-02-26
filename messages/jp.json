@@ -52,7 +52,8 @@
     "client_list": "加盟店一覧",
     "service_management": "サービス管理",
     "service_list": "サービス一覧",
-    "create_service": "サービス作成"
+    "create_service": "サービス作成",
+    "payment_management": "決済チャネル管理"
   },
   "LocaleSwitcher": {
     "en": "English",
@@ -295,6 +296,7 @@
     "edit_transactions": "トランザクション編集",
     "edit_invoices": "明細編集",
     "edit_users": "ユーザー編集",
-    "create_users": "ユーザー作成"
+    "create_users": "ユーザー作成",
+    "payments": "決済チャネル管理"
   }
 }

@@ -1,0 +1,29 @@
+{
+    "psp_name" : "高見澤決済",
+    "api_key" : {
+        "name": "APIキー",
+        "type": "text"
+    },
+    "secret_key" : {
+        "name": "シークレットキー",
+        "type": "text"
+    },
+    "credit" : {
+        "name": "クレジット",
+        "type": "text",
+        "subparam": [
+            {
+                "aaaa": {
+                    "name": "クレジット",
+                    "type": "text"
+                }
+            },
+            {
+                "aaaa": {
+                    "name": "クレジット",
+                    "type": "text"
+                }
+            }
+        ]
+    }
+}
