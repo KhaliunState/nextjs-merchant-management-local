@@ -39,7 +39,7 @@ type Data = {
 
 export function TransactionDetail() {
   const t = useTranslations('Transaction');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const router = useRouter();
 
   function handleUpdate(event: React.FormEvent) {

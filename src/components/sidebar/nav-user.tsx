@@ -58,7 +58,7 @@ export function NavUser({
   const { isMobile } = useSidebar();
   const t = useTranslations('User');
   const smenu = useTranslations('SideMenu');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isEditedDialogOpen, setIsEditedDialogOpen] = useState(false);
 

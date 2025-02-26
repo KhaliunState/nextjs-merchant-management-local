@@ -249,13 +249,23 @@
     "columns": "열",
     "edit": "편집",
     "download": "다운로드",
-    "view": "상세보기"
+    "view": "상세보기",
+    "view_cols": "보다",
+    "reset": "다시 놓기",
+    "clear_filters": "필터 지우기",
+    "per_rows": "페이지당 행 수",
+    "page": "페이지",
+    "of": "중",
+    "selected_rows": "행 선택됨.",
+    "filter_titles": "제목 필터링...",
+    "search_cols": "검색 열...",
+    "selected": "선택된"
   },
   "Validations": {
     "msg_site_name": "사이트 이름은 최소 2자 이상이어야 합니다.",
     "msg_pls_fill": "이 필드를 채워주세요"
   },
-  "Buttons": {
+  "Button": {
     "next": "다음",
     "back": "뒤쪽에",
     "create": "만들다",
@@ -267,7 +277,8 @@
     "update": "업데이트",
     "actions": "행위",
     "filter_tran_id": "거래 ID 필터링",
-    "columns": "열"
+    "columns": "열",
+    "save": "구하다"
   },
   "Breadcrumb": {
   "admin": "홈",
@@ -294,5 +305,21 @@
   "edit_users": "사용자 수정",
   "create_users": "사용자 생성",
   "payments": "결제 채널 관리"
+  },
+  "Column": {
+  "site_name": "사이트 이름",
+  "url": "URL",
+  "client_id": "클라이언트 ID",
+  "status": "상태",
+  "created_at": "생성 날짜",
+  "updated_at": "업데이트 날짜",
+  "amount": "금액",
+  "payment_method": "결제 방법",
+  "site_id": "사이트 ID",
+  "storage_fee": "보관료",
+  "total": "합계",
+  "email": "이메일",
+  "role": "역할",
+  "cognito_id": "Cognito ID"
   }
 }

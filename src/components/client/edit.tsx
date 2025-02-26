@@ -32,7 +32,7 @@ import { useRouter } from '@/i18n/routing';
 export function EditClient() {
   const t = useTranslations('Client');
   const valMsg = useTranslations('Validations');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const [isUpdatedDialogOpen, setIsUpdatedDialogOpen] = React.useState(false);
 
   const formSchema = z.object({

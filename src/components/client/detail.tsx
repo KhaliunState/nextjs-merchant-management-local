@@ -73,7 +73,7 @@ type Data = {
 
 export function ClientDetail() {
   const t = useTranslations('Client');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const router = useRouter();
 
   function handleUpdate(event: React.FormEvent) {
@@ -191,9 +191,7 @@ export function ClientDetail() {
               </div>
               <div className="flex">
                 <div className="w-80">
-                  <p className="text-gray-600 font-medium">
-                    {t('email')}
-                  </p>
+                  <p className="text-gray-600 font-medium">{t('email')}</p>
                 </div>
                 <div>
                   <p> {data.client.email}</p>

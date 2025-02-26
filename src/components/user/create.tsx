@@ -40,7 +40,7 @@ export function CreateUser() {
   const t = useTranslations('User');
   const s = useTranslations('Status');
   const valMsg = useTranslations('Validations');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
 
   const formSchema = z.object({
     user_id: z.string().min(2, {

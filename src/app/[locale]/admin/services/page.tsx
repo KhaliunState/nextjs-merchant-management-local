@@ -295,7 +295,7 @@ export default function Clients() {
   const smenu = useTranslations('SideMenu');
   const s = useTranslations('Status');
   const tb = useTranslations('Table');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
 
   return (
     <div className="w-full">

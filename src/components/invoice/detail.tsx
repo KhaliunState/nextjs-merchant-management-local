@@ -56,7 +56,7 @@ type Data = {
 export function InvoiceDetail() {
   const i = useTranslations('Invoice');
   const c = useTranslations('Client');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const tb = useTranslations('Table');
   const router = useRouter();
 
@@ -98,20 +98,20 @@ export function InvoiceDetail() {
         <CardContent className="mt-6">
           <div>
             <div className="grid grid-rows-none grid-cols-1 gap-3">
-              <p className='text-3xl'>{i('invoice')}</p>
+              <p className="text-3xl">{i('invoice')}</p>
               <p>{c('client_id')}: 0004</p>
               <p>{c('client_name')}: Tanaka</p>
               <p>{c('address')}: Tokyo, Shinjuku</p>
               <p>{c('email')}: customer@example.com</p>
 
-              <p className='text-xl mt-6'>{i('invoice_info')}</p>
+              <p className="text-xl mt-6">{i('invoice_info')}</p>
               <p>{i('invoice_id')}: 1004</p>
               <p>{i('invoice_date')}: 2025/01/17</p>
               <p>{i('due_date')}: 2025/01/19</p>
               <p>{i('status')}: failed</p>
               <Separator className="my-4" />
 
-              <p className='text-xl'>{i('itemized_charges')}</p>
+              <p className="text-xl">{i('itemized_charges')}</p>
               <div className="flex">
                 <div className="w-80">
                   <p className="text-gray-600 font-medium">
@@ -149,7 +149,7 @@ export function InvoiceDetail() {
                 </div>
               </div>
               <Separator className="my-4" />
-              <p className='text-xl'>{i('total_amount_due')}</p>
+              <p className="text-xl">{i('total_amount_due')}</p>
               <p>{i('total')}: ¥1350</p>
             </div>
           </div>

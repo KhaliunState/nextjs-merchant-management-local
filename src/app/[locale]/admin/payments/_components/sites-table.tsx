@@ -56,7 +56,7 @@ export function TasksTable({ promises }: TasksTableProps) {
     {
       id: 'site_name',
       label: 'Title',
-      placeholder: t('filter_titles'),
+      placeholder: 'Filter title',
     },
     {
       id: 'status',

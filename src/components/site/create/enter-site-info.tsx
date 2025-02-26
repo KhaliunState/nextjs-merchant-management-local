@@ -34,7 +34,7 @@ export function EnterSiteInfo({
 }) {
   const t = useTranslations('Site');
   const valMsg = useTranslations('Validations');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
 
   const formSchema = z.object({
     site_id: z.string().min(2, {

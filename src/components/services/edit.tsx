@@ -40,7 +40,7 @@ export function EditService() {
   const t = useTranslations('Service');
   const s = useTranslations('Status');
   const valMsg = useTranslations('Validations');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
 
   const formSchema = z.object({
     service_id: z.string().min(2, {

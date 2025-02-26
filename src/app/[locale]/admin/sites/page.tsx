@@ -291,7 +291,7 @@ export default function Sites() {
   const t = useTranslations('Site');
   const s = useTranslations('Status');
   const tb = useTranslations('Table');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
 
   return (
     <div className="w-full">
@@ -373,7 +373,9 @@ export default function Sites() {
                     <TableCell key={cell.id}>
                       {flexRender(
                         cell.id.includes('status') ? (
-                          <StatusBadge status={row.getValue('status')}></StatusBadge>
+                          <StatusBadge
+                            status={row.getValue('status')}
+                          ></StatusBadge>
                         ) : (
                           cell.column.columnDef.cell
                         ),

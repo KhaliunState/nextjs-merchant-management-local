@@ -253,13 +253,23 @@
     "columns": "コラム",
     "edit": "編集",
     "download": "ダウンロード",
-    "view": "詳細を見る"
+    "view": "詳細を見る",
+    "view_cols": "ビュー",
+    "reset": "リセット",
+    "clear_filters": "フィルターをクリア",
+    "per_rows": "ページあたりの行数",
+    "page": "ページ",
+    "of": "の",
+    "selected_rows": "行選択済み。",
+    "filter_titles": "タイトルをフィルター...",
+    "search_cols": "検索列...",
+    "selected": "選択された"
   },
   "Validations": {
     "msg_site_name": "サイト名は2文字以上でなければなりません。",
     "msg_pls_fill": "この欄に記入してください"
   },
-  "Buttons": {
+  "Button": {
     "next": "次",
     "back": "戻",
     "create": "登録",
@@ -270,7 +280,8 @@
     "view_detail": "詳細を見る",
     "update": "更新",
     "actions": "アクション",
-    "columns": "コラム"
+    "columns": "コラム",
+    "save": "保存する"
   },
   "Breadcrumb": {
     "test": "Test",
@@ -298,5 +309,21 @@
     "edit_users": "ユーザー編集",
     "create_users": "ユーザー作成",
     "payments": "決済チャネル管理"
+  },
+  "Column": {
+    "site_name": "サイト名",
+    "url": "URL",
+    "client_id": "クライアントID",
+    "status": "ステータス",
+    "created_at": "作成日",
+    "updated_at": "更新日",
+    "amount": "金額",
+    "payment_method": "支払い方法",
+    "site_id": "サイトID",
+    "storage_fee": "保管料",
+    "total": "合計",
+    "email": "メール",
+    "role": "役割",
+    "cognito_id": "Cognito ID"
   }
 }

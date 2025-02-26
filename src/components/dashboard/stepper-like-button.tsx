@@ -9,11 +9,18 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Link, useRouter } from '@/i18n/routing';
-import { CheckIcon, CircleCheckIcon, EarthIcon, MoveRight, MoveRightIcon, StoreIcon } from 'lucide-react';
+import {
+  CheckIcon,
+  CircleCheckIcon,
+  EarthIcon,
+  MoveRight,
+  MoveRightIcon,
+  StoreIcon,
+} from 'lucide-react';
 
 export function Stepper2() {
   const t = useTranslations('Invoice');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const router = useRouter();
 
   function handleUpdate(event: React.FormEvent) {
@@ -45,13 +52,12 @@ export function Stepper2() {
           className="w-full p-4 text-blue-700 bg-blue-100 border border-blue-300 rounded-lg dark:bg-gray-800 dark:border-blue-800 dark:text-blue-400"
           role="alert"
         >
-
           <Link href={'/admin/sites/create'}>
-          <div className="flex items-center justify-between">
-            <span className="sr-only">Social accounts</span>
-            <h3 className="font-medium">2. サイト作成</h3>
-            <MoveRightIcon/>
-          </div>
+            <div className="flex items-center justify-between">
+              <span className="sr-only">Social accounts</span>
+              <h3 className="font-medium">2. サイト作成</h3>
+              <MoveRightIcon />
+            </div>
           </Link>
         </div>
       </li>

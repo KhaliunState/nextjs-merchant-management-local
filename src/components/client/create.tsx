@@ -40,7 +40,7 @@ import { toast } from '@/hooks/use-toast';
 export function CreateClient() {
   const t = useTranslations('Client');
   const valMsg = useTranslations('Validations');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const [isCreatedDialogOpen, setIsCreatedDialogOpen] = React.useState(false);
 
   const formSchema = z.object({

@@ -219,7 +219,7 @@ export default function Sites() {
   const t = useTranslations('Site');
   const s = useTranslations('Status');
   const tb = useTranslations('Table');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const br = useTranslations('Breadcrumb');
   const sv = useTranslations('Service');
   // State to track the expanded row
@@ -336,18 +336,20 @@ export default function Sites() {
                       <TableRow
                         key={row.id}
                         data-state={row.getIsSelected() && 'selected'}
-                        onClick={() => handleRowClick(row.id)} 
+                        onClick={() => handleRowClick(row.id)}
                         className={clsx(
                           expandedRow === row.id
                             ? 'hover:hover:bg-gray-200 !hover:bg-gray-200 bg-gray-200'
-                            : ''
+                            : '',
                         )}
                       >
                         {row.getVisibleCells().map((cell) => (
                           <TableCell key={cell.id}>
                             {flexRender(
                               cell.id.includes('status') ? (
-                                <StatusBadge status={row.getValue('status')}></StatusBadge>
+                                <StatusBadge
+                                  status={row.getValue('status')}
+                                ></StatusBadge>
                               ) : (
                                 cell.column.columnDef.cell
                               ),

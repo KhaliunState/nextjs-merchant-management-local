@@ -245,20 +245,11 @@
     "active": "Active",
     "inactive": "Inactive"
   },
-  "Table": {
-    "actions": "Actions",
-    "next": "Next",
-    "previous": "Previous",
-    "columns": "Columns",
-    "edit": "Edit",
-    "download": "Download",
-    "view": "View detail"
-  },
   "Validations": {
     "msg_site_name": "Site name must be at least 2 characters.",
     "msg_pls_fill": "Please fill out this field"
   },
-  "Buttons": {
+  "Button": {
     "next": "Next",
     "back": "Back",
     "create": "Create",
@@ -269,7 +260,8 @@
     "view_detail": "View detail",
     "update": "Update",
     "actions": "Actions",
-    "columns": "Columns"
+    "columns": "Columns",
+    "save": "Save"
   },
   "Breadcrumb": {
     "test": "Test",
@@ -297,5 +289,41 @@
     "edit_users": "Edit user",
     "create_users": "Create user",
     "payments": "Payment management"
+  },
+  "Table": {
+    "actions": "Actions",
+    "next": "Next",
+    "previous": "Previous",
+    "columns": "Columns",
+    "edit": "Edit",
+    "download": "Download",
+    "view": "View detail",
+    "view_cols": "View",
+    "reset": "Reset",
+    "clear_filters": "Clear filters",
+    "per_rows": "Rows per page",
+    "page": "Page",
+    "of": "of",
+    "selected_rows": "row(s) selected.",
+    "filter_titles": "Filter titles...",
+    "search_cols": "Search columns...",
+    "selected": "selected"
+  },
+  "Column":
+  {
+    "site_name": "Site name",
+    "url": "URL",
+    "client_id": "Client ID",
+    "status": "Status",
+    "created_at": "Created at",
+    "updated_at": "Updated_at",
+    "amount": "Amount",
+    "payment_method": "Payment method",
+    "site_id": "Site ID",
+    "storage_fee": "Storage fee",
+    "total": "Total",
+    "email": "Email",
+    "role": "Role",
+    "cognito_id": "Cognito ID"
   }
 }

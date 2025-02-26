@@ -37,7 +37,7 @@ type Data = {
 
 export function ServiceDetail() {
   const t = useTranslations('Service');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const router = useRouter();
 
   function handleUpdate(event: React.FormEvent) {
@@ -57,9 +57,7 @@ export function ServiceDetail() {
             <div className="grid grid-rows-none grid-cols-1 gap-4">
               <div className="flex">
                 <div className="w-80">
-                  <p className="text-gray-600 font-medium">
-                    {t('service_id')}
-                  </p>
+                  <p className="text-gray-600 font-medium">{t('service_id')}</p>
                 </div>
                 <div>
                   <p>{data.service.service_id}</p>
@@ -68,7 +66,9 @@ export function ServiceDetail() {
 
               <div className="flex">
                 <div className="w-80">
-                  <p className="text-gray-600 font-medium">{t('service_name')}</p>
+                  <p className="text-gray-600 font-medium">
+                    {t('service_name')}
+                  </p>
                 </div>
                 <div>
                   <p>{data.service.service_name}</p>
@@ -88,7 +88,9 @@ export function ServiceDetail() {
 
               <div className="flex">
                 <div className="w-80">
-                  <p className="text-gray-600 font-medium">{t('failure_fee')}</p>
+                  <p className="text-gray-600 font-medium">
+                    {t('failure_fee')}
+                  </p>
                 </div>
                 <div>
                   <p>{data.service.failure_fee}</p>

@@ -59,7 +59,7 @@ export function SiteConfirmation({
   setIsDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const t = useTranslations('Site');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   function handleSubmit(event: React.FormEvent) {
     setActiveStep(4);
     setIsDialogOpen(true);

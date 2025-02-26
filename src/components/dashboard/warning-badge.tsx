@@ -23,7 +23,7 @@ import {
 
 export function WarningBadge() {
   const t = useTranslations('Invoice');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
   const router = useRouter();
 
   function handleUpdate(event: React.FormEvent) {

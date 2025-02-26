@@ -251,15 +251,26 @@
     "actions": "操作",
     "next": "下一个",
     "previous": "以前的",
+    "columns": "列",
     "edit": "编辑",
     "download": "下载",
-    "view": "查看详情"
+    "view": "查看详情",
+    "view_cols": "看法",
+    "reset": "重置",
+    "clear_filters": "清除筛选条件",
+    "per_rows": "每页行数",
+    "page": "页",
+    "of": "的",
+    "selected_rows": "行已选中。",
+    "filter_titles": "筛选标题...",
+    "search_cols": "搜索栏...",
+    "selected": "已选择"
   },
   "Validations": {
     "msg_site_name": "站点名称必须至少包含 2 个字符。",
     "msg_pls_fill": "请填写此字段"
   },
-  "Buttons": {
+  "Button": {
     "next": "下一个",
     "back": "后退",
     "create": "创造",
@@ -270,7 +281,8 @@
     "view_detail": "查看详情",
     "update": "更新",
     "actions": "操作",
-    "columns": "列"
+    "columns": "列",
+    "save": "节省"
   },
   "Breadcrumb": {
   "admin": "主页",
@@ -297,5 +309,21 @@
   "edit_users": "编辑用户",
   "create_users": "创建用户",
   "payments": "支付渠道管理"
+  },
+  "Column": {
+  "site_name": "站点名称",
+  "url": "URL",
+  "client_id": "客户端 ID",
+  "status": "状态",
+  "created_at": "创建时间",
+  "updated_at": "更新时间",
+  "amount": "金额",
+  "payment_method": "支付方式",
+  "site_id": "站点 ID",
+  "storage_fee": "存储费",
+  "total": "总计",
+  "email": "电子邮件",
+  "role": "角色",
+  "cognito_id": "Cognito ID"
   }
 }

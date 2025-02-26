@@ -53,7 +53,7 @@ import { EnterGMOInfo } from '@/components/site/create/enter-gmo-info';
 export default function CreateSite() {
   const t = useTranslations('Site');
   const valMsg = useTranslations('Validations');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
 
   const steps = [
     t('enter_site_info'),

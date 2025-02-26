@@ -219,7 +219,7 @@ export default function Transactions() {
       enableHiding: false,
       cell: ({ row }) => {
         const payment = row.original;
-        const btn = useTranslations('Buttons');
+        const btn = useTranslations('Button');
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -287,7 +287,7 @@ export default function Transactions() {
   const smenu = useTranslations('SideMenu');
   const s = useTranslations('Status');
   const tb = useTranslations('Table');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
 
   return (
     <div className="w-full">

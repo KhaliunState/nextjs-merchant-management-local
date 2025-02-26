@@ -42,7 +42,7 @@ export function EnterPSPInfo({
 }) {
   const t = useTranslations('Site');
   const valMsg = useTranslations('Validations');
-  const btn = useTranslations('Buttons');
+  const btn = useTranslations('Button');
 
   const steps = [
     t('enter_site_info'),
