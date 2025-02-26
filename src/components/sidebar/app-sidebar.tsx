@@ -26,10 +26,11 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
+import { Separator } from '@/components/ui/separator';
 
 import { NavMain } from '@/components/sidebar/nav-main';
 import { useTranslations } from 'next-intl';
-import { Separator } from '@radix-ui/react-separator';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import DynamicBreadcrumb from '../dinamic-breadcrumb';
 interface Breadcrumb {
   label: string;
@@ -228,7 +229,10 @@ export function AppSidebar({
           <Separator orientation="vertical" className="mr-2 h-4" />
           <DynamicBreadcrumb data={breadCrumbData} />
         </header>
-        <main className="w-full p-8">{children}</main>
+
+        <NuqsAdapter>
+          <main className="flex-1 m-6">{children}</main>
+        </NuqsAdapter>
       </SidebarInset>
     </>
   );
