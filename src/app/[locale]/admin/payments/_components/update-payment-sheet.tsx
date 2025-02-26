@@ -46,11 +46,8 @@ export function UpdateSiteSheet({
   const form = useForm<UpdatePspSchema>({
     resolver: zodResolver(updatePspSchema),
     defaultValues: {
-      id: payment?.id ?? '',
-      code: payment?.code ?? '',
-      site_name: payment?.site_name ?? '',
-      url: payment?.url ?? '',
-      client_id: payment?.client_id ?? '',
+      payment_id: payment?.id ?? '',
+      api_key: payment?.api_key ?? '',
       status: payment?.status ?? '',
     },
   });
@@ -106,15 +103,7 @@ export function UpdateSiteSheet({
               <FormField
                 key={field.name}
                 control={form.control}
-                name={
-                  field.name as
-                    | 'id'
-                    | 'code'
-                    | 'site_name'
-                    | 'url'
-                    | 'client_id'
-                    | 'status'
-                }
+                name={field.name as 'payment_id' | 'api_key' | 'status'}
                 render={({ field: inputField }) => (
                   <FormItem>
                     <FormLabel>{t(field.name)}</FormLabel>
