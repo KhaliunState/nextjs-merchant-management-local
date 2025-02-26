@@ -1,6 +1,6 @@
 'use client';
 
-import { statusValues, type Site } from '@/db/schema';
+import { statusValues, type Channels } from '@/db/schema';
 import type { DataTableRowAction } from '@/types';
 import type { ColumnDef } from '@tanstack/react-table';
 import { Ellipsis, EyeIcon, PencilIcon, TrashIcon } from 'lucide-react';
@@ -28,13 +28,13 @@ import { useTranslations } from 'next-intl';
 
 interface GetColumnsProps {
   setRowAction: React.Dispatch<
-    React.SetStateAction<DataTableRowAction<Site> | null>
+    React.SetStateAction<DataTableRowAction<Channels> | null>
   >;
 }
 
 export function getColumns({
   setRowAction,
-}: GetColumnsProps): ColumnDef<Site>[] {
+}: GetColumnsProps): ColumnDef<Channels>[] {
   return [
     {
       id: 'select',
@@ -61,55 +61,35 @@ export function getColumns({
       enableHiding: false,
     },
     {
-      accessorKey: 'code',
+      accessorKey: 'payment_id',
       header: ({ column }) => {
-        const t = useTranslations('Site');
+        const t = useTranslations('Payment');
         return (
-          <DataTableColumnHeader column={column} site_name={t('site_id')} />
+          <DataTableColumnHeader column={column} site_name={t('payment_id')} />
         );
       },
-      cell: ({ row }) => <div className="w-20">{row.getValue('code')}</div>,
+      cell: ({ row }) => (
+        <div className="w-20">{row.getValue('payment_id')}</div>
+      ),
       enableSorting: false,
       enableHiding: false,
     },
     {
-      accessorKey: 'site_name',
+      accessorKey: 'api_key',
       header: ({ column }) => {
-        const t = useTranslations('Site');
+        const t = useTranslations('Payment');
         return (
-          <DataTableColumnHeader column={column} site_name={t('site_name')} />
+          <DataTableColumnHeader column={column} site_name={t('api_key')} />
         );
       },
       cell: ({ row }) => {
-        return <div className="w-20">{row.getValue('site_name')}</div>;
-      },
-    },
-    {
-      accessorKey: 'url',
-      header: ({ column }) => {
-        const t = useTranslations('Site');
-        return <DataTableColumnHeader column={column} site_name={t('url')} />;
-      },
-      cell: ({ row }) => {
-        return <div className="w-20">{row.getValue('url')}</div>;
-      },
-    },
-    {
-      accessorKey: 'client_id',
-      header: ({ column }) => {
-        const t = useTranslations('Site');
-        return (
-          <DataTableColumnHeader column={column} site_name={t('client_id')} />
-        );
-      },
-      cell: ({ row }) => {
-        return <div className="w-20">{row.getValue('client_id')}</div>;
+        return <div className="w-20">{row.getValue('api_key')}</div>;
       },
     },
     {
       accessorKey: 'status',
       header: ({ column }) => {
-        const t = useTranslations('Site');
+        const t = useTranslations('Status');
         return (
           <DataTableColumnHeader column={column} site_name={t('status')} />
         );
@@ -140,7 +120,7 @@ export function getColumns({
     {
       accessorKey: 'created_at',
       header: ({ column }) => {
-        const t = useTranslations('Site');
+        const t = useTranslations('Column');
         return (
           <DataTableColumnHeader column={column} site_name={t('created_at')} />
         );

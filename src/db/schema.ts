@@ -9,6 +9,16 @@ export type Site = {
   updated_at: Date | null;
 }
 
+export type Channels = {
+  id: string;
+  payment_id: string | null;
+  api_key: string | null;
+  password: string | null;
+  status: "pending" | "processing" | "success" | "failed";
+  created_at: Date;
+  updated_at: Date | null;
+}
+
 export type Tran = {
   id: string;
   amount: number;

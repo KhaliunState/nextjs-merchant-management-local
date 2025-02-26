@@ -1,6 +1,6 @@
 'use client';
 
-import type { Site } from '@/db/schema';
+import type { Channels } from '@/db/schema';
 import type { Row } from '@tanstack/react-table';
 import { Loader, Trash } from 'lucide-react';
 import * as React from 'react';
@@ -32,26 +32,26 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import { deleteTasks } from '../_lib/actions';
 import { useTranslations } from 'next-intl';
 
-interface DeleteTasksDialogProps
+interface DeleteChannelDialogProps
   extends React.ComponentPropsWithoutRef<typeof Dialog> {
-  tasks: Row<Site>['original'][];
+  channels: Row<Channels>['original'][];
   showTrigger?: boolean;
   onSuccess?: () => void;
 }
 
-export function DeleteTasksDialog({
-  tasks,
+export function DeleteChannelDialog({
+  channels: channels,
   showTrigger = true,
   onSuccess,
   ...props
-}: DeleteTasksDialogProps) {
+}: DeleteChannelDialogProps) {
   const [isDeletePending, startDeleteTransition] = React.useTransition();
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
   function onDelete() {
     startDeleteTransition(async () => {
       const { error } = await deleteTasks({
-        ids: tasks.map((task) => task.id),
+        ids: channels.map((task) => task.id),
       });
 
       if (error) {
@@ -83,7 +83,7 @@ export function DeleteTasksDialog({
           <DialogTrigger asChild>
             <Button variant="outline" size="sm">
               <Trash className="mr-2 size-4" aria-hidden="true" />
-              Delete ({tasks.length})
+              Delete ({channels.length})
             </Button>
           </DialogTrigger>
         ) : null}
@@ -143,7 +143,7 @@ export function DeleteTasksDialog({
         <DrawerTrigger asChild>
           <Button variant="outline" size="sm">
             <Trash className="mr-2 size-4" aria-hidden="true" />
-            Delete ({tasks.length})
+            Delete ({channels.length})
           </Button>
         </DrawerTrigger>
       ) : null}
@@ -152,8 +152,8 @@ export function DeleteTasksDialog({
           <DrawerTitle>Are you absolutely sure?</DrawerTitle>
           <DrawerDescription>
             This action cannot be undone. This will permanently delete your{' '}
-            <span className="font-medium">{tasks.length}</span>
-            {tasks.length === 1 ? ' task' : ' tasks'} from our servers.
+            <span className="font-medium">{channels.length}</span>
+            {channels.length === 1 ? ' task' : ' tasks'} from our servers.
           </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="gap-2 sm:space-x-0">

@@ -308,7 +308,8 @@
   "edit_invoices": "编辑发票",
   "edit_users": "编辑用户",
   "create_users": "创建用户",
-  "payments": "支付渠道管理"
+  "payments": "支付渠道管理",
+  "create_payments": "创建支付渠道"
   },
   "Column": {
   "site_name": "站点名称",
@@ -324,6 +325,22 @@
   "total": "总计",
   "email": "电子邮件",
   "role": "角色",
-  "cognito_id": "Cognito ID"
+  "cognito_id": "Cognito ID",
+  "api_key": "API key"
+  },
+  "Payment": {
+    "connected_channels": "已连接渠道",
+    "available_channels": "可用渠道",
+    "payment_id": "Payment ID",
+    "add_keys": "添加密钥",
+    "api_key": "API key",
+    "api_pass": "API密码",
+    "mer_id": "商户ID",
+    "notif_secret": "通知密钥",
+    "payment_channels": "支付渠道",
+    "wallets": "电子钱包",
+    "cards": "信用卡/借记卡",
+    "all": "全部",
+    "filter_psp": "过滤支付渠道名称..."
   }
 }

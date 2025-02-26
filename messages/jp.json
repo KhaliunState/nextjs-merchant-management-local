@@ -308,7 +308,8 @@
     "edit_invoices": "明細編集",
     "edit_users": "ユーザー編集",
     "create_users": "ユーザー作成",
-    "payments": "決済チャネル管理"
+    "payments": "決済チャネル管理",
+    "create_payments": "支払いチャネルを作成する"
   },
   "Column": {
     "site_name": "サイト名",
@@ -324,6 +325,22 @@
     "total": "合計",
     "email": "メール",
     "role": "役割",
-    "cognito_id": "Cognito ID"
+    "cognito_id": "Cognito ID",
+    "api_key": "API key"
+  },
+  "Payment": {
+    "connected_channels": "接続済みチャンネル",
+    "available_channels": "利用可能なチャンネル",
+    "payment_id": "Payment ID",
+    "api_key": "API key",
+    "add_keys": "キーを追加",
+    "api_pass": "APIパスワード",
+    "mer_id": "加盟店ID",
+    "notif_secret": "通知シークレット",
+    "payment_channels": "支払いチャンネル",
+    "wallets": "ウォレット",
+    "cards": "クレジット/デビットカード",
+    "all": "すべて",
+    "filter_psp": "支払いチャネル名をフィルター..."
   }
 }

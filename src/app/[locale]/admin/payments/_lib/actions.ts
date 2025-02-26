@@ -4,9 +4,9 @@ import { revalidateTag, unstable_noStore } from "next/cache";
 
 import { getErrorMessage } from "@/lib/handle-error";
 
-import type { CreateTaskSchema, UpdateTaskSchema } from "./validations";
+import type { CreatePspSchema, UpdatePspSchema } from "./validations";
 
-export async function createTask(input: CreateTaskSchema) {
+export async function createTask(input: CreatePspSchema) {
   unstable_noStore();
   try {
     return {
@@ -21,7 +21,7 @@ export async function createTask(input: CreateTaskSchema) {
   }
 }
 
-export async function updateTask(input: UpdateTaskSchema & { id: string }) {
+export async function updateTask(input: UpdatePspSchema & { id: string }) {
   unstable_noStore();
   try {
     return {

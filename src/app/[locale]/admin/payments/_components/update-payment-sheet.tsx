@@ -1,6 +1,6 @@
 'use client';
 
-import { type Site, statusValues } from '@/db/schema';
+import { type Channels, statusValues } from '@/db/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader } from 'lucide-react';
 import * as React from 'react';
@@ -27,31 +27,31 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 
 import { updateTask } from '../_lib/actions';
-import { type UpdateTaskSchema, updateTaskSchema } from '../_lib/validations';
+import { type UpdatePspSchema, updatePspSchema } from '../_lib/validations';
 import { useTranslations } from 'use-intl';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 
 interface UpdateSiteSheetProps
   extends React.ComponentPropsWithRef<typeof Sheet> {
-  site: Site | null;
+  payment: Channels | null;
 }
 
 export function UpdateSiteSheet({
-  site: site,
+  payment: payment,
   ...props
 }: UpdateSiteSheetProps) {
   const [isUpdatePending, startUpdateTransition] = React.useTransition();
 
-  const form = useForm<UpdateTaskSchema>({
-    resolver: zodResolver(updateTaskSchema),
+  const form = useForm<UpdatePspSchema>({
+    resolver: zodResolver(updatePspSchema),
     defaultValues: {
-      id: site?.id ?? '',
-      code: site?.code ?? '',
-      site_name: site?.site_name ?? '',
-      url: site?.url ?? '',
-      client_id: site?.client_id ?? '',
-      status: site?.status ?? '',
+      id: payment?.id ?? '',
+      code: payment?.code ?? '',
+      site_name: payment?.site_name ?? '',
+      url: payment?.url ?? '',
+      client_id: payment?.client_id ?? '',
+      status: payment?.status ?? '',
     },
   });
 
@@ -64,12 +64,12 @@ export function UpdateSiteSheet({
     { name: 'status', label: 'Status', placeholder: 'Enter Status' },
   ];
 
-  function onSubmit(input: UpdateTaskSchema) {
+  function onSubmit(input: UpdatePspSchema) {
     startUpdateTransition(async () => {
-      if (!site) return;
+      if (!payment) return;
 
       const { error } = await updateTask({
-        id: site.id,
+        id: payment.id,
         ...input,
       });
 

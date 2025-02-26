@@ -9,7 +9,7 @@ async function fetchUserData(query: string) {
   return data;
 }
 
-export async function getTasks(input: GetTasksSchema) {
+export async function getPaymentChannels(input: GetTasksSchema) {
   return await unstable_cache(
     async () => {
       try {
@@ -18,21 +18,16 @@ export async function getTasks(input: GetTasksSchema) {
         const toDate = input.to ? new Date(input.to) : undefined;
         const advancedTable = input.flags.includes('advancedTable');
 
-        // const data = await fetchUserData(input.site_name); 
-        // console.log("data : "+JSON.stringify(data, null, 2));
-        // console.log("input : "+JSON.stringify(input, null, 2));
-
         const statuses = ['pending', 'processing', 'success', 'failed'] as const;
         const priorities = ['low', 'medium', 'high'] as const;
 
         const data = Array.from({ length: 10 }, (_, i) => {
-          const id = `task-${i + 1}`;
+          const id = `ID-${i + 1}`;
           return {
             id,
-            code: `${Math.floor(1000 + Math.random() * 9000)}`,
-            site_name: `Site ${i + 1}`,
-            url: `URL ${i + 1}`,
-            client_id: `Client ${i + 1}`,
+            payment_id: `Payment ID-${i + 1}`,
+            api_key: `${Math.floor(1000 + Math.random() * 9000)}`,
+            password: `Password ${i + 1}`,
             status: statuses[Math.floor(Math.random() * statuses.length)],
             created_at: new Date(),
             updated_at: Math.random() < 0.5 ? new Date() : null,

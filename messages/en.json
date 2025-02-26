@@ -288,7 +288,8 @@
     "edit_invoices": "Edit invoice",
     "edit_users": "Edit user",
     "create_users": "Create user",
-    "payments": "Payment management"
+    "payments": "Payment management",
+    "create_payments": "Create payment"
   },
   "Table": {
     "actions": "Actions",
@@ -324,6 +325,23 @@
     "total": "Total",
     "email": "Email",
     "role": "Role",
-    "cognito_id": "Cognito ID"
+    "cognito_id": "Cognito ID",
+    "api_key": "API key"
+  },
+  "Payment":
+  {
+    "connected_channels": "Connected channels",
+    "available_channels": "Available channels",
+    "payment_id": "Payment ID",
+    "add_keys": "Add keys",
+    "api_key": "API key",
+    "api_pass": "API password",
+    "mer_id": "Merchant ID",
+    "notif_secret": "Notification secret",
+    "payment_channels": "Payment channels",
+    "wallets": "Wallets",
+    "cards": "Credit/Debit Cards",
+    "all": "All",
+    "filter_psp": "Filter payment channel name..."
   }
 }

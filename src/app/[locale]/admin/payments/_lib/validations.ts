@@ -29,25 +29,22 @@ export const searchParamsCache = createSearchParamsCache({
   joinOperator: parseAsStringEnum(["and", "or"]).withDefault("and"),
 });
 
-export const createTaskSchema = z.object({
-  site_name: z.string(),
+export const createPspSchema = z.object({
+  payment_id: z.string(),
   // label: z.enum(tasks.label.enumValues),
   // status: z.enum(tasks.status.enumValues),
   // priority: z.enum(tasks.priority.enumValues),
 });
 
-export const updateTaskSchema = z.object({
-  id: z.string().optional(),  
-  code: z.string().optional(),  
-  site_name: z.string().optional(),   
-  url: z.string().optional(),   
-  client_id: z.string().optional(),   
+export const updatePspSchema = z.object({
+  payment_id: z.string().optional(),  
+  api_key: z.string().optional(),  
+  password: z.string().optional(),   
   status: z.string().optional(),   
-  // created_at: z.string().optional(),   
 });
 
 export type GetTasksSchema = Awaited<
   ReturnType<typeof searchParamsCache.parse>
 >;
-export type CreateTaskSchema = z.infer<typeof createTaskSchema>;
-export type UpdateTaskSchema = z.infer<typeof updateTaskSchema>;
+export type CreatePspSchema = z.infer<typeof createPspSchema>;
+export type UpdatePspSchema = z.infer<typeof updatePspSchema>;

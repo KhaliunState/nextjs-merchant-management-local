@@ -304,7 +304,8 @@
   "edit_invoices": "청구서 수정",
   "edit_users": "사용자 수정",
   "create_users": "사용자 생성",
-  "payments": "결제 채널 관리"
+  "payments": "결제 채널 관리",
+  "create_payments": "결제 채널 생성"
   },
   "Column": {
   "site_name": "사이트 이름",
@@ -320,6 +321,22 @@
   "total": "합계",
   "email": "이메일",
   "role": "역할",
-  "cognito_id": "Cognito ID"
+  "cognito_id": "Cognito ID",
+    "api_key": "API key"
+  },
+  "Payment": {
+    "connected_channels": "연결된 채널",
+    "available_channels": "사용 가능한 채널",
+    "payment_id": "Payment ID",
+    "api_key": "API key",
+    "add_keys": "키 추가",
+    "api_pass": "API 비밀번호",
+    "mer_id": "가맹점 ID",
+    "notif_secret": "알림 비밀키",
+    "payment_channels": "결제 채널",
+    "wallets": "전자지갑",
+    "cards": "신용/직불 카드",
+    "all": "전체",
+    "filter_psp": "결제 채널 이름 필터링..."
   }
 }

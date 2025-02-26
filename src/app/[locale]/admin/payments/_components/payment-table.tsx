@@ -1,6 +1,6 @@
 'use client';
 
-import { statusValues, Site } from '@/db/schema';
+import { statusValues, Channels } from '@/db/schema';
 import type {
   DataTableAdvancedFilterField,
   DataTableFilterField,
@@ -14,25 +14,25 @@ import { useDataTable } from '@/hooks/use-data-table';
 import { toSentenceCase } from '@/lib/utils';
 import { getStatusIcon } from '../_lib/utils';
 
-import type { getTasks } from '../_lib/queries';
-import { DeleteTasksDialog } from './delete-sites-dialog';
-import { getColumns } from './sites-table-columns';
-import { TasksTableToolbarActions } from './sites-table-toolbar-actions';
-import { UpdateSiteSheet } from './update-site-sheet';
+import type { getPaymentChannels } from '../_lib/queries';
+import { DeleteChannelDialog } from './delete-payment-dialog';
+import { getColumns } from './payment-table-columns';
+import { TasksTableToolbarActions } from './payment-table-toolbar-actions';
+import { UpdateSiteSheet } from './update-payment-sheet';
 import { useRouter } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { ViewSiteDialog } from './view-site-dialog';
+import { ViewSiteDialog } from './view-payment-dialog';
 
-interface TasksTableProps {
-  promises: Promise<[Awaited<ReturnType<typeof getTasks>>]>;
+interface PaymentsTableProps {
+  promises: Promise<[Awaited<ReturnType<typeof getPaymentChannels>>]>;
 }
 
-export function TasksTable({ promises }: TasksTableProps) {
+export function PaymentsTable({ promises }: PaymentsTableProps) {
   const [{ data, pageCount }] = React.use(promises);
 
   const [rowAction, setRowAction] =
-    React.useState<DataTableRowAction<Site> | null>(null);
+    React.useState<DataTableRowAction<Channels> | null>(null);
 
   const columns = React.useMemo(() => getColumns({ setRowAction }), []);
 
@@ -51,12 +51,13 @@ export function TasksTable({ promises }: TasksTableProps) {
 
   const t = useTranslations('Table');
   const s = useTranslations('Status');
-  const site = useTranslations('Site');
-  const filterFields: DataTableFilterField<Site>[] = [
+  const payment = useTranslations('Payment');
+  const br = useTranslations('Breadcrumb');
+  const filterFields: DataTableFilterField<Channels>[] = [
     {
-      id: 'site_name',
+      id: 'api_key',
       label: 'Title',
-      placeholder: 'Filter title',
+      placeholder: payment('filter_psp'),
     },
     {
       id: 'status',
@@ -80,9 +81,9 @@ export function TasksTable({ promises }: TasksTableProps) {
    * 3. Used with DataTableAdvancedToolbar: Enables a more sophisticated filtering UI.
    * 4. Date and boolean types: Adds support for filtering by date ranges and boolean values.
    */
-  const advancedFilterFields: DataTableAdvancedFilterField<Site>[] = [
+  const advancedFilterFields: DataTableAdvancedFilterField<Channels>[] = [
     {
-      id: 'site_name',
+      id: 'api_key',
       label: 'Title',
       type: 'text',
     },
@@ -118,14 +119,14 @@ export function TasksTable({ promises }: TasksTableProps) {
     clearOnDefault: true,
   });
   function handleButton() {
-    router.push('/admin/sites/create');
+    router.push('/admin/payments/create');
   }
   return (
     <>
       <div className="flex justify-between items-center gap-3 mb-10">
-        <h1 className="text-2xl">{site('site_management')}</h1>
+        <h1 className="text-2xl">{payment('payment_channels')}</h1>
         <Button className="ml-4" onClick={handleButton}>
-          {site('create_site')}
+          {br('create_payments')}
         </Button>
       </div>
 
@@ -134,15 +135,15 @@ export function TasksTable({ promises }: TasksTableProps) {
           <TasksTableToolbarActions table={table} />
         </DataTableToolbar>
       </DataTable>
-      <UpdateSiteSheet
+      {/* <UpdateSiteSheet
         open={rowAction?.type === 'update'}
         onOpenChange={() => setRowAction(null)}
-        site={rowAction?.row.original ?? null}
+        payment={rowAction?.row.original ?? null}
       />
-      <DeleteTasksDialog
+      <DeleteChannelDialog
         open={rowAction?.type === 'delete'}
         onOpenChange={() => setRowAction(null)}
-        tasks={rowAction?.row.original ? [rowAction?.row.original] : []}
+        channels={rowAction?.row.original ? [rowAction?.row.original] : []}
         showTrigger={false}
         onSuccess={() => rowAction?.row.toggleSelected(false)}
       />
@@ -159,7 +160,7 @@ export function TasksTable({ promises }: TasksTableProps) {
         tasks={rowAction?.row.original ? [rowAction?.row.original] : []}
         showTrigger={false}
         onSuccess={() => rowAction?.row.toggleSelected(false)}
-      />
+      /> */}
     </>
   );
 }
