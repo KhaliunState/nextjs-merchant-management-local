@@ -159,7 +159,7 @@ export default function Dashboard() {
 
   const [showDialog, setShowDialog] = React.useState(false);
   const getTemporaryData = () => {
-    const data = sessionStorage.getItem("isNewUser");
+    const data = sessionStorage.getItem('isNewUser');
     return data ? JSON.parse(data) : true;
   };
   function handleCreateClient() {
@@ -167,15 +167,14 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    const hasShownDialog = sessionStorage.getItem("hasShownDialog");
+    const hasShownDialog = sessionStorage.getItem('hasShownDialog');
     if (!hasShownDialog) {
       setShowDialog(true);
-      sessionStorage.setItem("hasShownDialog", "true");
+      sessionStorage.setItem('hasShownDialog', 'true');
     }
   }, []);
 
   return (
-    
     <div>
       <div className="flex flex-col items-start space-y-2">
         {/* <div className="w-auto">
@@ -183,11 +182,6 @@ export default function Dashboard() {
         </div> */}
         <div className="w-auto">
           <WarningBadge />
-        </div>
-      </div>
-      <div>
-        <div className="border border-gray-300 rounded-xl shadow p-4">
-          <Stepper2 />
         </div>
       </div>
       <div>
@@ -368,10 +362,7 @@ export default function Dashboard() {
           </ChartContainer>
         </CardContent>
       </Card>
-      <Dialog
-        open={showDialog}
-        onOpenChange={setShowDialog}
-      >
+      <Dialog open={showDialog} onOpenChange={setShowDialog}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>{t('pls_create_client')}</DialogTitle>
