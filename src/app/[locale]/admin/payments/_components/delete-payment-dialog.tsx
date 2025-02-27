@@ -65,8 +65,9 @@ export function DeleteChannelDialog({
     });
   }
 
-  const t = useTranslations('Site');
+  const t = useTranslations('Payment');
   const btn = useTranslations('Button');
+  const col = useTranslations('Column');
 
   function handleCancel() {
     showTrigger = false;
@@ -89,28 +90,24 @@ export function DeleteChannelDialog({
         ) : null}
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>{t('confirm_delete_site')}</DialogTitle>
+            <DialogTitle>{t('confirm_delete_payment')}</DialogTitle>
           </DialogHeader>
           <div className="grid grid-rows-none grid-cols-1 border-y divide-y">
             <div className="flex py-6">
-              <div className="w-40">{t('site_name')}</div>
-              <div>site_name</div>
+              <div className="w-40">{t('payment_id')}</div>
+              <div>payment_id</div>
             </div>
             <div className="flex py-6">
-              <div className="w-40">{t('url')}</div>
-              <div>url</div>
+              <div className="w-40">{t('api_key')}</div>
+              <div>api_key</div>
             </div>
             <div className="flex py-6">
-              <div className="w-40">{t('client_id')}</div>
-              <div>client_id</div>
-            </div>
-            <div className="flex py-6">
-              <div className="w-40">{t('created_at')}</div>
-              <div>created_at</div>
-            </div>
-            <div className="flex py-6">
-              <div className="w-40">{t('status')}</div>
+              <div className="w-40">{col('status')}</div>
               <div>status</div>
+            </div>
+            <div className="flex py-6">
+              <div className="w-40">{col('created_at')}</div>
+              <div>created_at</div>
             </div>
           </div>
           <DialogFooter className="gap-2 sm:space-x-0">

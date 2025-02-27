@@ -18,11 +18,11 @@ import type { getPaymentChannels } from '../_lib/queries';
 import { DeleteChannelDialog } from './delete-payment-dialog';
 import { getColumns } from './payment-table-columns';
 import { TasksTableToolbarActions } from './payment-table-toolbar-actions';
-import { UpdateSiteSheet } from './update-payment-sheet';
+import { UpdatePaymentChannelSheet } from './update-payment-sheet';
 import { useRouter } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { ViewSiteDialog } from './view-payment-dialog';
+import { ViewPaymentChannelDialog } from './view-payment-dialog';
 
 interface PaymentsTableProps {
   promises: Promise<[Awaited<ReturnType<typeof getPaymentChannels>>]>;
@@ -135,7 +135,7 @@ export function PaymentsTable({ promises }: PaymentsTableProps) {
           <TasksTableToolbarActions table={table} />
         </DataTableToolbar>
       </DataTable>
-      {/* <UpdateSiteSheet
+      <UpdatePaymentChannelSheet
         open={rowAction?.type === 'update'}
         onOpenChange={() => setRowAction(null)}
         payment={rowAction?.row.original ?? null}
@@ -147,20 +147,13 @@ export function PaymentsTable({ promises }: PaymentsTableProps) {
         showTrigger={false}
         onSuccess={() => rowAction?.row.toggleSelected(false)}
       />
-      <ViewSiteDialog
+      <ViewPaymentChannelDialog
         open={rowAction?.type === 'view'}
         onOpenChange={() => setRowAction(null)}
         tasks={rowAction?.row.original ? [rowAction?.row.original] : []}
         showTrigger={false}
         onSuccess={() => rowAction?.row.toggleSelected(false)}
       />
-      <ViewSiteDialog
-        open={rowAction?.type === 'view'}
-        onOpenChange={() => setRowAction(null)}
-        tasks={rowAction?.row.original ? [rowAction?.row.original] : []}
-        showTrigger={false}
-        onSuccess={() => rowAction?.row.toggleSelected(false)}
-      /> */}
     </>
   );
 }

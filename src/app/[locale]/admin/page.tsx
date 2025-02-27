@@ -184,6 +184,11 @@ export default function Dashboard() {
           <WarningBadge />
         </div>
       </div>
+      {/* <div>
+        <div className="border border-gray-300 rounded-xl shadow p-4">
+          <Stepper2 />
+        </div>
+      </div> */}
       <div>
         <div className="flex flex-row gap-2 py-4">
           <div className="basis-1/4">

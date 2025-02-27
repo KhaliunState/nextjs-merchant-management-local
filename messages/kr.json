@@ -337,6 +337,10 @@
     "wallets": "전자지갑",
     "cards": "신용/직불 카드",
     "all": "전체",
-    "filter_psp": "결제 채널 이름 필터링..."
+    "filter_psp": "결제 채널 이름 필터링...",
+    "confirm_delete_payment": "이 결제 채널을 삭제하시겠습니까?",
+    "p_channel_detail": "결제 채널 상세정보",
+    "password": "비밀번호",
+    "status": "상태"
   }
 }
