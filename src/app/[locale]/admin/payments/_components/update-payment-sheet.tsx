@@ -32,36 +32,36 @@ import { useTranslations } from 'use-intl';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 
-interface UpdateSiteSheetProps
+interface UpdatePaymentChannelSheetProps
   extends React.ComponentPropsWithRef<typeof Sheet> {
   payment: Channels | null;
 }
 
-export function UpdateSiteSheet({
+export function UpdatePaymentChannelSheet({
   payment: payment,
   ...props
-}: UpdateSiteSheetProps) {
+}: UpdatePaymentChannelSheetProps) {
   const [isUpdatePending, startUpdateTransition] = React.useTransition();
 
   const form = useForm<UpdatePspSchema>({
     resolver: zodResolver(updatePspSchema),
     defaultValues: {
-      id: payment?.id ?? '',
-      code: payment?.code ?? '',
-      site_name: payment?.site_name ?? '',
-      url: payment?.url ?? '',
-      client_id: payment?.client_id ?? '',
+      payment_id: payment?.payment_id ?? '',
+      api_key: payment?.api_key ?? '',
+      password: payment?.password ?? '',
       status: payment?.status ?? '',
     },
   });
 
   const fields = [
-    // { name: 'id', label: 'ID', placeholder: 'Enter ID' },
-    // { name: 'code', label: 'Code', placeholder: 'Enter Code' },
-    { name: 'site_name', label: 'Site Name', placeholder: 'Enter Site Name' },
-    { name: 'url', label: 'URL', placeholder: 'Enter URL' },
-    { name: 'client_id', label: 'Client ID', placeholder: 'Enter Client ID' },
-    { name: 'status', label: 'Status', placeholder: 'Enter Status' },
+    {
+      name: 'payment_id',
+      label: 'payment_id',
+      placeholder: 'Enter Payment ID',
+    },
+    { name: 'api_key', label: 'api_key', placeholder: 'Enter api_key' },
+    { name: 'password', label: 'password', placeholder: 'Enter password' },
+    { name: 'status', label: 'status', placeholder: 'Enter Status' },
   ];
 
   function onSubmit(input: UpdatePspSchema) {
@@ -84,7 +84,7 @@ export function UpdateSiteSheet({
     });
   }
 
-  const t = useTranslations('Site');
+  const t = useTranslations('Payment');
   const btn = useTranslations('Button');
   const br = useTranslations('Breadcrumb');
 
@@ -92,7 +92,7 @@ export function UpdateSiteSheet({
     <Sheet {...props}>
       <SheetContent className="flex flex-col gap-6 sm:max-w-md">
         <SheetHeader className="text-left">
-          <SheetTitle>{br('edit_sites')}</SheetTitle>
+          <SheetTitle>{t('p_channel_detail')}</SheetTitle>
           <SheetDescription>
             Update the task details and save the changes
           </SheetDescription>
@@ -107,13 +107,7 @@ export function UpdateSiteSheet({
                 key={field.name}
                 control={form.control}
                 name={
-                  field.name as
-                    | 'id'
-                    | 'code'
-                    | 'site_name'
-                    | 'url'
-                    | 'client_id'
-                    | 'status'
+                  field.name as 'payment_id' | 'api_key' | 'password' | 'status'
                 }
                 render={({ field: inputField }) => (
                   <FormItem>

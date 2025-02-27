@@ -341,6 +341,10 @@
     "wallets": "电子钱包",
     "cards": "信用卡/借记卡",
     "all": "全部",
-    "filter_psp": "过滤支付渠道名称..."
+    "filter_psp": "过滤支付渠道名称...",
+    "confirm_delete_payment": "您确定要删除该支付渠道吗？",
+    "p_channel_detail": "支付渠道详情",
+    "password": "密码",
+    "status": "状态"
   }
 }

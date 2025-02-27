@@ -32,19 +32,19 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import { deleteTasks } from '../_lib/actions';
 import { useTranslations } from 'next-intl';
 
-interface ViewSiteDialogProps
+interface ViewPaymentChannelDialogProps
   extends React.ComponentPropsWithoutRef<typeof Dialog> {
   tasks: Row<Site>['original'][];
   showTrigger?: boolean;
   onSuccess?: () => void;
 }
 
-export function ViewSiteDialog({
+export function ViewPaymentChannelDialog({
   tasks,
   showTrigger = true,
   onSuccess,
   ...props
-}: ViewSiteDialogProps) {
+}: ViewPaymentChannelDialogProps) {
   const [isDeletePending, startDeleteTransition] = React.useTransition();
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
@@ -65,9 +65,10 @@ export function ViewSiteDialog({
     });
   }
 
-  const t = useTranslations('Site');
+  const t = useTranslations('Payment');
   const btn = useTranslations('Button');
   const br = useTranslations('Breadcrumb');
+  const col = useTranslations('Column');
 
   function handleCancel() {
     showTrigger = false;
@@ -86,24 +87,20 @@ export function ViewSiteDialog({
           </DialogHeader>
           <div className="grid grid-rows-none grid-cols-1 border-y divide-y">
             <div className="flex py-6">
-              <div className="w-40">{t('site_name')}</div>
-              <div>site_name</div>
+              <div className="w-40">{t('payment_id')}</div>
+              <div>payment_id</div>
             </div>
             <div className="flex py-6">
-              <div className="w-40">{t('url')}</div>
-              <div>url</div>
+              <div className="w-40">{t('api_key')}</div>
+              <div>api_key</div>
             </div>
             <div className="flex py-6">
-              <div className="w-40">{t('client_id')}</div>
-              <div>client_id</div>
-            </div>
-            <div className="flex py-6">
-              <div className="w-40">{t('created_at')}</div>
-              <div>created_at</div>
-            </div>
-            <div className="flex py-6">
-              <div className="w-40">{t('status')}</div>
+              <div className="w-40">{col('status')}</div>
               <div>status</div>
+            </div>
+            <div className="flex py-6">
+              <div className="w-40">{col('created_at')}</div>
+              <div>created_at</div>
             </div>
           </div>
           <DialogFooter className="gap-2 sm:space-x-0">

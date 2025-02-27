@@ -341,6 +341,10 @@
     "wallets": "ウォレット",
     "cards": "クレジット/デビットカード",
     "all": "すべて",
-    "filter_psp": "支払いチャネル名をフィルター..."
+    "filter_psp": "支払いチャネル名をフィルター...",
+    "confirm_delete_payment": "この支払いチャネルを削除してもよろしいですか?",
+    "p_channel_detail": "支払いチャンネルの詳細",
+    "password": "パスワード",
+    "status": "ステータス"
   }
 }
