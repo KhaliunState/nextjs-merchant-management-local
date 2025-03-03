@@ -1,6 +1,6 @@
 'use client';
 
-import type { Site } from '@/db/schema';
+import type { Channels } from '@/db/schema';
 import type { Row } from '@tanstack/react-table';
 import { Loader, Trash } from 'lucide-react';
 import * as React from 'react';
@@ -34,7 +34,7 @@ import { useTranslations } from 'next-intl';
 
 interface ViewPaymentChannelDialogProps
   extends React.ComponentPropsWithoutRef<typeof Dialog> {
-  tasks: Row<Site>['original'][];
+  tasks: Row<Channels>['original'][];
   showTrigger?: boolean;
   onSuccess?: () => void;
 }
